@@ -1,0 +1,54 @@
+print("=" * 40)
+print("   HAWKINS LAB CALCULATOR")
+print("   Handle with care...")
+print("=" * 40)
+
+upside_down = False
+
+while True:
+    print()
+    print("1. Add " \
+    " 2. Subtract " \
+    "3. Multiply" \
+    " 4. Divide")
+    print("5. Toggle the Upside Down " \
+    " 6. Close the gate (quit)")
+    choice = input("Pick a power: ")
+
+    if choice == "6":
+        print("Gate closed." \
+        " Stay safe out there.")
+        break
+
+    if choice == "5":
+        upside_down = not upside_down
+        if upside_down:
+            print("The Upside Down is OPEN. Answers will be flipped...")
+        else:
+            print("Back to the normal world.")
+        continue
+
+    if choice not in ("1", "2", "3", "4"):
+        print("That's not a power. Try again.")
+        continue
+
+    a = float(input("First number: "))
+    b = float(input("Second number: "))
+
+    if choice == "1":
+        result = a + b
+    elif choice == "2":
+        result = a - b
+    elif choice == "3":
+        result = a * b
+    else:
+        if b == 0:
+            print("The Demogorgon ate your zero! You can't divide by 0.")
+            continue
+        result = a / b
+
+    if upside_down:
+        result = 0 - result
+        print("Upside Down answer:", result)
+    else:
+        print("Answer:", result)
